@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drishti Ayurvedic Eye Clinic – Ancient Wisdom, Clear Vision</title>
+  <meta name="description" content="Drishti Ayurvedic Eye Clinic – Holistic Ayurvedic eye care combining ancient healing traditions with modern diagnostics." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    /* ===========================
+       TOKENS
+    =========================== */
+    :root {
+      --clr-forest:   #1B3A2D;   /* deep Ayurvedic green */
+      --clr-sage:     #3D6B52;   /* mid-tone sage */
+      --clr-leaf:     #5E9B70;   /* accent leaf */
+      --clr-gold:     #B8892A;   /* saffron-gold */
+      --clr-gold-lt:  #D9A84C;
+      --clr-cream:    #F7F3EC;   /* warm off-white */
+      --clr-parchment:#EDE6D6;
+      --clr-text:     #1C1C1C;
+      --clr-muted:    #5A5A5A;
+      --clr-white:    #FFFFFF;
+
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body:    'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 14px;
+      --radius-lg: 28px;
+      --shadow:    0 4px 32px rgba(27,58,45,.12);
+      --shadow-lg: 0 12px 60px rgba(27,58,45,.18);
+
+      --section-pad: 90px 0;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--clr-cream);
+      color: var(--clr-text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 {
+      font-family: var(--ff-display);
+      line-height: 1.2;
+      color: var(--clr-forest);
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 600; }
+    h3 { font-size: 1.5rem; font-weight: 500; }
+    h4 { font-size: 1.15rem; font-weight: 600; }
+    p  { color: var(--clr-muted); font-size: 1rem; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      margin-bottom: .75rem;
+    }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem 1.75rem;
+      border-radius: 50px;
+      font-family: var(--ff-body);
+      font-size: .92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all .25s ease;
+    }
+    .btn-primary {
+      background: var(--clr-forest);
+      color: var(--clr-white);
+    }
+    .btn-primary:hover { background: var(--clr-sage); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--clr-forest);
+      border: 2px solid var(--clr-forest);
+    }
+    .btn-outline:hover { background: var(--clr-forest); color: var(--clr-white); }
+    .btn-gold {
+      background: var(--clr-gold);
+      color: var(--clr-white);
+    }
+    .btn-gold:hover { background: var(--clr-gold-lt); transform: translateY(-2px); }
+    .section { padding: var(--section-pad); }
+    .section-title { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+    .section-title p { margin-top: .75rem; }
+    .grid { display: grid; gap: 2rem; }
+
+    /* ===========================
+       SCROLL TO TOP
+    =========================== */
+    .scroll-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 46px; height: 46px;
+      background: var(--clr-forest);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      z-index: 999;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+      box-shadow: var(--shadow);
+    }
+    .scroll-top.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top:hover { background: var(--clr-sage); }
+
+    /* ===========================
+       PRELOADER
+    =========================== */
+    #preloader {
+      position: fixed; inset: 0;
+      background: var(--clr-cream);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity .5s .2s;
+    }
+    #preloader.done { opacity: 0; pointer-events: none; }
+    .preloader-lotus {
+      font-size: 3rem;
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background .35s, padding .35s, box-shadow .35s;
+    }
+    .navbar.scrolled {
+      background: var(--clr-white);
+      padding: 12px 0;
+      box-shadow: 0 2px 20px rgba(27,58,45,.1);
+    }
+    .navbar .container {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--clr-forest);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .nav-logo .logo-text { font-family: var(--ff-display); font-size: 1.35rem; font-weight: 700; color: var(--clr-forest); line-height: 1.1; }
+    .nav-logo .logo-sub { font-size: .68rem; letter-spacing: .12em; color: var(--clr-gold); text-transform: uppercase; font-family: var(--ff-body); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: .9rem; font-weight: 500; color: var(--clr-forest); transition: color .2s; position: relative; }
+    .nav-links a::after { content:''; position:absolute; bottom:-3px; left:0; width:0; height:2px; background:var(--clr-gold); transition:width .2s; border-radius:2px; }
+    .nav-links a:hover { color: var(--clr-gold); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta { display: flex; align-items: center; gap: 1rem; }
+
+    /* Mobile nav */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--clr-forest); }
+    @media (max-width: 900px) {
+      .nav-links { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--clr-white); flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.3rem; }
+      .nav-toggle { display: block; z-index: 101; }
+      .nav-cta .btn { display: none; }
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--clr-forest) 0%, #2A5040 60%, #1B3A2D 100%);
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 90px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(94,155,112,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(184,137,42,.12) 0%, transparent 60%);
+    }
+    /* Decorative mandala rings */
+    .hero-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.06);
+      pointer-events: none;
+    }
+    .hero-ring-1 { width: 600px; height: 600px; right: -200px; top: 50%; transform: translateY(-50%); }
+    .hero-ring-2 { width: 420px; height: 420px; right: -80px; top: 50%; transform: translateY(-50%); border-color: rgba(184,137,42,.15); }
+    .hero-ring-3 { width: 260px; height: 260px; right: 50px; top: 50%; transform: translateY(-50%); border-color: rgba(255,255,255,.1); }
+
+    .hero .container { position: relative; z-index: 2; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: calc(100vh - 90px); padding: 4rem 0; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #B8D4C0;
+      font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 { color: var(--clr-white); margin-bottom: 1.25rem; }
+    .hero h1 em { color: var(--clr-gold-lt); font-style: italic; }
+    .hero p { color: rgba(255,255,255,.7); font-size: 1.05rem; max-width: 460px; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-hero-outline {
+      background: transparent;
+      color: var(--clr-white);
+      border: 2px solid rgba(255,255,255,.4);
+      border-radius: 50px;
+      padding: .75rem 1.75rem;
+      font-family: var(--ff-body);
+      font-size: .92rem; font-weight: 600;
+      cursor: pointer;
+      transition: all .25s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-hero-outline:hover { border-color: var(--clr-white); background: rgba(255,255,255,.1); }
+    .hero-stats { display: flex; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+    .hero-stat { border-left: 2px solid var(--clr-gold); padding-left: 1rem; }
+    .hero-stat strong { display: block; font-family: var(--ff-display); font-size: 1.8rem; color: var(--clr-white); line-height: 1; }
+    .hero-stat span { font-size: .8rem; color: rgba(255,255,255,.6); }
+
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 1.2rem; position: relative;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      color: var(--clr-white);
+    }
+    .hero-card .card-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .hero-card h4 { font-family: var(--ff-display); font-size: 1.15rem; color: var(--clr-white); margin-bottom: .4rem; }
+    .hero-card p { color: rgba(255,255,255,.65); font-size: .88rem; }
+    .hero-card.accent { background: var(--clr-gold); border-color: transparent; }
+    .hero-card.accent p { color: rgba(255,255,255,.85); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin: 0 auto 2rem; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-ring-1, .hero-ring-2, .hero-ring-3 { display: none; }
+    }
+
+    /* ===========================
+       APPOINTMENT BAND
+    =========================== */
+    .appt-band {
+      background: var(--clr-white);
+      padding: 2.5rem 0;
+      box-shadow: var(--shadow);
+    }
+    .appt-band .container {
+      display: flex; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .appt-title { flex: 1; min-width: 220px; }
+    .appt-title span { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--clr-gold); }
+    .appt-title h3 { font-size: 1.45rem; color: var(--clr-forest); }
+    .appt-fields { display: flex; gap: 1rem; flex-wrap: wrap; flex: 3; align-items: flex-end; }
+    .appt-input {
+      flex: 1; min-width: 160px;
+      display: flex; flex-direction: column; gap: .4rem;
+    }
+    .appt-input label { font-size: .8rem; font-weight: 600; color: var(--clr-forest); }
+    .appt-input input,
+    .appt-input select {
+      padding: .7rem 1rem;
+      border: 1.5px solid #DDD;
+      border-radius: var(--radius-sm);
+      font-family: var(--ff-body);
+      font-size: .9rem;
+      color: var(--clr-text);
+      background: var(--clr-cream);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .appt-input input:focus, .appt-input select:focus { border-color: var(--clr-sage); }
+
+    /* ===========================
+       ABOUT
+    =========================== */
+    .about { background: var(--clr-cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-bg {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(160deg, var(--clr-sage), var(--clr-forest));
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(184,137,42,.2), transparent 60%);
+    }
+    .about-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+    .about-badge strong { display: block; font-family: var(--ff-display); font-size: 2.2rem; color: var(--clr-forest); line-height: 1; }
+    .about-badge span { font-size: .78rem; color: var(--clr-muted); }
+    .about-content h2 { margin-bottom: 1rem; }
+    .about-content > p { margin-bottom: 1.5rem; }
+    .about-list { margin-bottom: 2rem; }
+    .about-list li { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: .8rem; font-size: .95rem; }
+    .about-list li .check { color: var(--clr-leaf); font-size: 1.1rem; margin-top: 2px; }
+
+    @media (max-width: 800px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-badge { right: 10px; }
+    }
+
+    /* ===========================
+       SERVICES
+    =========================== */
+    .services { background: var(--clr-parchment); }
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .service-card {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1.5px solid transparent;
+      transition: all .3s;
+      cursor: default;
+    }
+    .service-card:hover { border-color: var(--clr-leaf); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .svc-icon {
+      width: 56px; height: 56px;
+      background: var(--clr-cream);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      color: var(--clr-forest);
+      transition: background .3s;
+    }
+    .service-card:hover .svc-icon { background: var(--clr-forest); color: var(--clr-white); }
+    .service-card h4 { margin-bottom: .5rem; font-family: var(--ff-display); font-size: 1.2rem; }
+    .service-card p { font-size: .9rem; }
+
+    /* ===========================
+       STATS BAND
+    =========================== */
+    .stats-band {
+      background: var(--clr-forest);
+      padding: 4rem 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      color: var(--clr-white);
+      line-height: 1;
+    }
+    .stat-item span { color: rgba(255,255,255,.6); font-size: .88rem; margin-top: .4rem; display: block; }
+    .stat-item .stat-icon { font-size: 1.5rem; color: var(--clr-gold); margin-bottom: .5rem; }
+
+    /* ===========================
+       TREATMENTS
+    =========================== */
+    .treatments { background: var(--clr-cream); }
+    .treatments-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .treatment-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--clr-white);
+      box-shadow: 0 2px 16px rgba(27,58,45,.08);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .treatment-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .treatment-img {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .treatment-img.bg1 { background: linear-gradient(135deg, #E8F4EB, #C8E6C9); }
+    .treatment-img.bg2 { background: linear-gradient(135deg, #FFF8E7, #FFE082); }
+    .treatment-img.bg3 { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+    .treatment-img.bg4 { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); }
+    .treatment-img.bg5 { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+    .treatment-img.bg6 { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+    .treatment-body { padding: 1.5rem; }
+    .treatment-body h4 { margin-bottom: .5rem; }
+    .treatment-body p { font-size: .88rem; }
+
+    /* ===========================
+       TESTIMONIALS
+    =========================== */
+    .testimonials { background: var(--clr-parchment); }
+    .testi-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .testi-card {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      font-family: var(--ff-display);
+      font-size: 4rem;
+      color: var(--clr-gold-lt);
+      opacity: .4;
+      position: absolute;
+      top: .5rem; left: 1.2rem;
+      line-height: 1;
+    }
+    .testi-stars { color: var(--clr-gold); margin-bottom: 1rem; }
+    .testi-card p { font-size: .95rem; font-style: italic; margin-bottom: 1.5rem; color: var(--clr-text); }
+    .testi-author { display: flex; align-items: center; gap: .75rem; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--clr-forest);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--clr-white);
+      font-family: var(--ff-display);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; font-size: .92rem; color: var(--clr-forest); }
+    .testi-loc  { font-size: .78rem; color: var(--clr-muted); }
+
+    /* ===========================
+       CTA BAND
+    =========================== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--clr-gold) 0%, #9A7020 100%);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: '👁';
+      position: absolute;
+      font-size: 18rem;
+      opacity: .04;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+    .cta-band h2 { color: var(--clr-white); margin-bottom: .75rem; font-size: clamp(1.6rem,3vw,2.5rem); }
+    .cta-band p  { color: rgba(255,255,255,.8); margin-bottom: 2rem; }
+    .cta-band .btn-white {
+      background: var(--clr-white);
+      color: var(--clr-gold);
+      border-radius: 50px;
+      padding: .85rem 2rem;
+      font-family: var(--ff-body);
+      font-size: .95rem; font-weight: 700;
+      border: none; cursor: pointer;
+      transition: transform .2s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .cta-band .btn-white:hover { transform: translateY(-2px); }
+
+    /* ===========================
+       DOCTOR
+    =========================== */
+    .doctor { background: var(--clr-cream); }
+    .doctor-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+    .doctor-img-wrap {
+      position: relative;
+    }
+    .doctor-img-bg {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #EDE6D6, var(--clr-parchment));
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9rem;
+      border: 3px solid rgba(184,137,42,.2);
+    }
+    .doctor-badge-wrap { position: absolute; top: 1.5rem; right: -20px; display: flex; flex-direction: column; gap: .75rem; }
+    .doctor-badge-item {
+      background: var(--clr-white);
+      border-radius: var(--radius-sm);
+      padding: .75rem 1rem;
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .6rem;
+      font-size: .82rem;
+    }
+    .doctor-badge-item i { color: var(--clr-gold); font-size: 1rem; }
+    .doctor-content h2 { margin-bottom: .5rem; }
+    .doctor-content .doctor-title { color: var(--clr-gold); font-weight: 600; font-size: .95rem; margin-bottom: 1.25rem; }
+    .doctor-content p { margin-bottom: 1rem; }
+    .doctor-qualifications { margin: 1.5rem 0; }
+    .doctor-qualifications li { display: flex; align-items: center; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--clr-parchment); font-size: .92rem; }
+    .doctor-qualifications li:last-child { border: none; }
+    .doctor-qualifications li i { color: var(--clr-leaf); }
+
+    @media (max-width: 800px) {
+      .doctor-grid { grid-template-columns: 1fr; }
+      .doctor-badge-wrap { right: 0; top: auto; bottom: 1rem; flex-direction: row; flex-wrap: wrap; }
+    }
+
+    /* ===========================
+       CONTACT / HOURS
+    =========================== */
+    .contact-section { background: var(--clr-parchment); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .contact-form-wrap h2 { margin-bottom: .5rem; }
+    .contact-form-wrap > p { margin-bottom: 2rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.2rem; }
+    .form-group label { font-size: .82rem; font-weight: 600; color: var(--clr-forest); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: .75rem 1rem;
+      border: 1.5px solid #DDD;
+      border-radius: var(--radius-sm);
+      font-family: var(--ff-body);
+      font-size: .92rem;
+      color: var(--clr-text);
+      background: var(--clr-white);
+      outline: none;
+      transition: border-color .2s;
+      resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--clr-sage); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .info-card {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(27,58,45,.07);
+    }
+    .info-card h3 { margin-bottom: 1.5rem; }
+    .info-item { display: flex; gap: .9rem; margin-bottom: 1.5rem; }
+    .info-item .info-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--clr-cream); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--clr-forest); flex-shrink: 0; }
+    .info-item .info-label { font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--clr-gold); margin-bottom: .2rem; }
+    .info-item .info-val { font-size: .92rem; color: var(--clr-text); }
+    .hours-list { border-top: 1px solid var(--clr-parchment); padding-top: 1.5rem; }
+    .hours-list li { display: flex; justify-content: space-between; padding: .55rem 0; border-bottom: 1px solid var(--clr-parchment); font-size: .9rem; }
+    .hours-list li span:last-child { font-weight: 600; color: var(--clr-forest); }
+    .hours-list li .closed { color: #C0392B; font-weight: 600; }
+
+    @media (max-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background: var(--clr-forest);
+      color: rgba(255,255,255,.75);
+      padding: 4rem 0 0;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    .footer-logo .logo-icon { background: rgba(255,255,255,.12); }
+    .footer-logo .logo-text { color: var(--clr-white); }
+    .footer-logo .logo-sub { color: var(--clr-gold-lt); }
+    .footer-about p { font-size: .88rem; line-height: 1.8; max-width: 280px; }
+    .footer-social { display: flex; gap: .75rem; margin-top: 1.5rem; }
+    .footer-social a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--clr-white);
+      font-size: .95rem;
+      transition: background .2s;
+    }
+    .footer-social a:hover { background: var(--clr-gold); }
+    .footer-widget h4 { color: var(--clr-white); font-size: 1rem; margin-bottom: 1.25rem; font-family: var(--ff-body); font-weight: 600; letter-spacing: .04em; }
+    .footer-links li { margin-bottom: .65rem; }
+    .footer-links a { font-size: .88rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--clr-gold-lt); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 1.25rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: .5rem;
+    }
+    .footer-bottom p { font-size: .82rem; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { font-size: .82rem; transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--clr-gold-lt); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* ===========================
+       FADE-IN ANIMATION
+    =========================== */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ===========================
+       MOBILE ADJUSTMENTS
+    =========================== */
+    @media (max-width: 600px) {
+      .appt-band .container { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-lotus">🪷</div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <a href="#" class="scroll-top" id="scrollTop"><i class="bi bi-chevron-up"></i></a>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div>
+          <div class="logo-text">Drishti</div>
+          <div class="logo-sub">Ayurvedic Eye Clinic</div>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#doctor">Doctor</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary">Book Appointment</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <i class="bi bi-list" id="toggleIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <div class="hero-ring hero-ring-3"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-tag"><span>🌿</span> Ancient Wisdom · Modern Care</div>
+          <h1>Restore Your Vision,<br><em>Naturally</em></h1>
+          <p>Holistic Ayurvedic eye care combining 5,000 years of healing tradition with contemporary diagnostics. Your sight is sacred — we treat it that way.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-gold"><i class="bi bi-calendar-check"></i> Book Consultation</a>
+            <a href="#about" class="btn-hero-outline"><i class="bi bi-play-circle"></i> Our Approach</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>20+</strong>
+              <span>Years of Practice</span>
+            </div>
+            <div class="hero-stat">
+              <strong>5000+</strong>
+              <span>Patients Healed</span>
+            </div>
+            <div class="hero-stat">
+              <strong>100%</strong>
+              <span>Natural Therapies</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="card-icon">👁️</div>
+            <h4>Netra Tarpana</h4>
+            <p>Traditional medicated ghee pooling therapy for deep ocular nourishment and rejuvenation.</p>
+          </div>
+          <div class="hero-card accent">
+            <div class="card-icon">🌺</div>
+            <h4>Free Eye Screening</h4>
+            <p>Complimentary Ayurvedic dosha assessment with your first consultation.</p>
+          </div>
+          <div class="hero-card">
+            <div class="card-icon">🌿</div>
+            <h4>Herbal Formulations</h4>
+            <p>Personalised Ayurvedic medicines crafted for your unique constitution (Prakriti).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPOINTMENT BAND ===== -->
+  <section class="appt-band">
+    <div class="container">
+      <div class="appt-title">
+        <span>Quick Booking</span>
+        <h3>Request an Appointment</h3>
+      </div>
+      <div class="appt-fields">
+        <div class="appt-input">
+          <label for="aName">Your Name</label>
+          <input type="text" id="aName" placeholder="Full name" />
+        </div>
+        <div class="appt-input">
+          <label for="aPhone">Phone / WhatsApp</label>
+          <input type="tel" id="aPhone" placeholder="+91 00000 00000" />
+        </div>
+        <div class="appt-input">
+          <label for="aService">Service</label>
+          <select id="aService">
+            <option value="" disabled selected>Select service</option>
+            <option>Netra Tarpana</option>
+            <option>Anjana Therapy</option>
+            <option>Bidalaka</option>
+            <option>Aschyotana</option>
+            <option>General Eye Consultation</option>
+          </select>
+        </div>
+        <div class="appt-input">
+          <label for="aDate">Preferred Date</label>
+          <input type="date" id="aDate" />
+        </div>
+        <button class="btn btn-primary" onclick="handleQuickBook()"><i class="bi bi-check2-circle"></i> Confirm</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap fade-in">
+          <div class="about-img-bg">🌿</div>
+          <div class="about-badge">
+            <strong>20+</strong>
+            <span>Years of<br>Healing</span>
+          </div>
+        </div>
+        <div class="about-content fade-in">
+          <span class="eyebrow">About Drishti</span>
+          <h2>Rooted in Tradition, Guided by Compassion</h2>
+          <p>At Drishti Ayurvedic Eye Clinic, we believe the eyes are not merely organs of sight — they are the windows to your entire constitution. Our practice draws from the rich Shalakya Tantra branch of Ayurveda, the ancient science of eye care, to address conditions modern medicine often manages but rarely resolves.</p>
+          <p>Every patient receives a thorough Prakriti analysis, dosha assessment, and a bespoke treatment plan combining classical therapies with lifestyle guidance.</p>
+          <ul class="about-list">
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Comprehensive Ayurvedic eye examinations</li>
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Authentic Panchakarma detox therapies</li>
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Custom herbal preparations & Rasayanas</li>
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Yoga & Trataka (eye gazing) practices</li>
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Dietary & Ahara guidance for eye health</li>
+            <li><span class="check"><i class="bi bi-check-circle-fill"></i></span> Treatment for glaucoma, cataracts & dry eyes</li>
+          </ul>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="#doctor" class="btn btn-outline">Meet the Doctor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Specialised Ayurvedic Eye Services</h2>
+        <p>Each therapy is delivered by a trained Ayurvedic physician in a calm, healing environment using only authentic, ethically sourced ingredients.</p>
+      </div>
+      <div class="grid services-grid">
+        <div class="service-card fade-in">
+          <div class="svc-icon">👁️</div>
+          <h4>Netra Tarpana</h4>
+          <p>Medicated ghee is retained in a dough dam around the eye, deeply nourishing the optic nerve and relieving dryness, strain, and early-stage vision loss.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="svc-icon">🌊</div>
+          <h4>Netra Dhara</h4>
+          <p>A continuous stream of herbal decoction is poured over open eyes to cleanse, cool, and purify ocular tissues, ideal for conjunctivitis and redness.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="svc-icon">🖤</div>
+          <h4>Anjana Therapy</h4>
+          <p>Application of medicated collyrium (kajal) prepared from classical Ayurvedic recipes to cleanse the eye channels and strengthen sight.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="svc-icon">💧</div>
+          <h4>Aschyotana</h4>
+          <p>Precise instillation of herbal eye drops — the Ayurvedic equivalent of medicated drops — tailored to your doshic imbalance.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="svc-icon">🍃</div>
+          <h4>Bidalaka</h4>
+          <p>Application of a medicinal herbal paste over closed eyelids to address inflammation, early cataract, and ptosis through transdermal absorption.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="svc-icon">🔥</div>
+          <h4>Shirodhara</h4>
+          <p>A continuous stream of warm herbal oil poured on the forehead to calm the nervous system, relieving stress-related vision problems and migraines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-icon"><i class="bi bi-eye-fill"></i></div>
+          <strong>5,000+</strong>
+          <span>Patients Treated</span>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-icon"><i class="bi bi-award-fill"></i></div>
+          <strong>20+</strong>
+          <span>Years of Experience</span>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+          <strong>98%</strong>
+          <span>Patient Satisfaction</span>
+        </div>
+        <div class="stat-item fade-in">
+          <div class="stat-icon"><i class="bi bi-flower3"></i></div>
+          <strong>100%</strong>
+          <span>Natural Therapies</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TREATMENTS ===== -->
+  <section class="treatments section" id="treatments">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="eyebrow">Conditions We Address</span>
+        <h2>Healing Through Nature's Wisdom</h2>
+        <p>Ayurvedic eye medicine addresses the root cause of disease, not just its symptoms, restoring long-term balance and clarity.</p>
+      </div>
+      <div class="grid treatments-grid">
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg1">🌿</div>
+          <div class="treatment-body">
+            <h4>Dry Eye Syndrome</h4>
+            <p>Netra Tarpana and personalised Vata-pacifying diet bring lasting relief where synthetic drops fail.</p>
+          </div>
+        </div>
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg2">✨</div>
+          <div class="treatment-body">
+            <h4>Early-Stage Cataracts</h4>
+            <p>Classical preparations like Saptamrita Lauha and targeted Bidalaka therapy slow progression naturally.</p>
+          </div>
+        </div>
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg3">💫</div>
+          <div class="treatment-body">
+            <h4>Glaucoma Management</h4>
+            <p>Supportive Ayurvedic care alongside modern monitoring to protect the optic nerve and manage pressure.</p>
+          </div>
+        </div>
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg4">🌸</div>
+          <div class="treatment-body">
+            <h4>Conjunctivitis & Allergies</h4>
+            <p>Netra Dhara washes and anti-inflammatory Ayurvedic herbs clear irritation rapidly and prevent recurrence.</p>
+          </div>
+        </div>
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg5">🌊</div>
+          <div class="treatment-body">
+            <h4>Diabetic Retinopathy</h4>
+            <p>Rasayana therapies and strict Ahara guidance support retinal health and blood sugar regulation.</p>
+          </div>
+        </div>
+        <div class="treatment-card fade-in">
+          <div class="treatment-img bg6">🔮</div>
+          <div class="treatment-body">
+            <h4>Computer Vision Syndrome</h4>
+            <p>Trataka, Nasya therapy, and Medhya Rasayanas restore focus and ease digital eye strain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="eyebrow">Patient Stories</span>
+        <h2>Voices of Healing</h2>
+        <p>The greatest testament to Ayurvedic care is the lives it transforms. Here are a few of our patients' stories.</p>
+      </div>
+      <div class="grid testi-grid">
+        <div class="testi-card fade-in">
+          <div class="testi-stars">★★★★★</div>
+          <p>"After years of eye drops that gave me temporary relief, Netra Tarpana at Drishti changed everything. My dry eye symptoms have reduced by 80% and I feel like myself again."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">P</div>
+            <div>
+              <div class="testi-name">Priya Desai</div>
+              <div class="testi-loc">Bangalore · Dry Eye Treatment</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="testi-stars">★★★★★</div>
+          <p>"I was told my early cataract would need surgery within a year. After six months of Ayurvedic treatment here, my ophthalmologist was amazed at how little it had progressed."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">R</div>
+            <div>
+              <div class="testi-name">Ramesh Patil</div>
+              <div class="testi-loc">Hyderabad · Cataract Management</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="testi-stars">★★★★★</div>
+          <p>"My child suffered from recurrent conjunctivitis. The doctor here addressed the root cause through diet and gentle herbal drops. It has not returned in over a year."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">S</div>
+            <div>
+              <div class="testi-name">Sunita Kulkarni</div>
+              <div class="testi-loc">Pune · Paediatric Eye Care</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band">
+    <div class="container">
+      <span class="eyebrow" style="color:rgba(255,255,255,.7)">Begin Your Journey</span>
+      <h2>Take the First Step Towards Clearer Vision</h2>
+      <p>Book a comprehensive Ayurvedic eye consultation today. Your path to natural healing starts here.</p>
+      <a href="#contact" class="btn-white"><i class="bi bi-calendar-heart"></i> Schedule My Consultation</a>
+    </div>
+  </section>
+
+  <!-- ===== DOCTOR ===== -->
+  <section class="doctor section" id="doctor">
+    <div class="container">
+      <div class="doctor-grid">
+        <div class="doctor-img-wrap fade-in">
+          <div class="doctor-img-bg">👨‍⚕️</div>
+          <div class="doctor-badge-wrap">
+            <div class="doctor-badge-item"><i class="bi bi-award"></i> BAMS, MD (Ayu)</div>
+            <div class="doctor-badge-item"><i class="bi bi-patch-check"></i> 20+ Years</div>
+            <div class="doctor-badge-item"><i class="bi bi-star-fill"></i> 4.9 Rating</div>
+          </div>
+        </div>
+        <div class="doctor-content fade-in">
+          <span class="eyebrow">Our Physician</span>
+          <h2>Dr. Arjun Nair</h2>
+          <div class="doctor-title">Chief Ayurvedic Ophthalmologist · Founder, Drishti</div>
+          <p>Dr. Arjun Nair is a distinguished Ayurvedic physician specialising in Shalakya Tantra — the ancient Ayurvedic branch dedicated to diseases of the head, eye, ear, nose and throat. With over two decades of clinical practice, he has helped thousands of patients reclaim their vision through authentic, evidence-guided Ayurvedic protocols.</p>
+          <p>Trained at the prestigious Gujarat Ayurved University and further specialised under master Vaidyas in Kerala, Dr. Nair blends classical scholarship with compassionate, individualised care.</p>
+          <ul class="doctor-qualifications">
+            <li><i class="bi bi-mortarboard-fill"></i> BAMS – Gujarat Ayurved University</li>
+            <li><i class="bi bi-mortarboard-fill"></i> MD (Shalakya Tantra) – IPGT & RA, Jamnagar</li>
+            <li><i class="bi bi-shield-check"></i> Member, National Ayurvedic Medical Association</li>
+            <li><i class="bi bi-book-fill"></i> Published researcher in Ayurvedic ophthalmology</li>
+            <li><i class="bi bi-translate"></i> Fluent in Kannada, Hindi, English & Malayalam</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary"><i class="bi bi-calendar-check"></i> Book with Dr. Nair</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form-wrap fade-in">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Book Your Consultation</h2>
+          <p>Fill in your details below and our team will contact you within 24 hours to confirm your appointment.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Rahul" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Sharma" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" placeholder="+91 00000 00000" />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select>
+              <option value="" disabled selected>Select a service</option>
+              <option>Netra Tarpana</option>
+              <option>Netra Dhara</option>
+              <option>Anjana Therapy</option>
+              <option>Aschyotana</option>
+              <option>Bidalaka</option>
+              <option>Shirodhara</option>
+              <option>General Ayurvedic Eye Consultation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Us About Your Concern</label>
+            <textarea rows="4" placeholder="Briefly describe your eye condition or concern..."></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleFormSubmit()">
+            <i class="bi bi-send"></i> Send Appointment Request
+          </button>
+        </div>
+
+        <div class="fade-in" style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div class="info-card">
+            <h3>Clinic Information</h3>
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="info-label">Address</div>
+                <div class="info-val">12 Vaidya Marg, Near City Garden,<br>Kalaburagi – 585101, Karnataka</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <div class="info-label">Phone / WhatsApp</div>
+                <div class="info-val">+91 98765 43210</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-val">care@drishticlinic.in</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Clinic Hours</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Friday</span><span>09:00 – 18:00</span></li>
+              <li><span>Saturday</span><span>09:00 – 14:00</span></li>
+              <li><span>Sunday</span><span class="closed">Closed</span></li>
+            </ul>
+            <p style="margin-top:1rem;font-size:.82rem;color:var(--clr-muted);">Emergency consultations available on WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="logo-icon">🌿</div>
+            <div>
+              <div class="logo-text">Drishti</div>
+              <div class="logo-sub">Ayurvedic Eye Clinic</div>
+            </div>
+          </div>
+          <p>Ancient Ayurvedic wisdom meets compassionate modern care. Restoring vision, one patient at a time, through the time-tested science of Shalakya Tantra.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-widget">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#treatments">Treatments</a></li>
+            <li><a href="#doctor">Our Doctor</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-widget">
+          <h4>Therapies</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Netra Tarpana</a></li>
+            <li><a href="#services">Netra Dhara</a></li>
+            <li><a href="#services">Anjana Therapy</a></li>
+            <li><a href="#services">Aschyotana</a></li>
+            <li><a href="#services">Bidalaka</a></li>
+            <li><a href="#services">Shirodhara</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-widget">
+          <h4>Contact</h4>
+          <ul class="footer-links" style="line-height:2;">
+            <li>12 Vaidya Marg,<br>Kalaburagi – 585101</li>
+            <li>+91 98765 43210</li>
+            <li>care@drishticlinic.in</li>
+            <li style="margin-top:.5rem;">Mon–Fri: 9am – 6pm</li>
+            <li>Saturday: 9am – 2pm</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Drishti Ayurvedic Eye Clinic. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      const pre = document.getElementById('preloader');
+      setTimeout(() => pre.classList.add('done'), 600);
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 300);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    const toggleIcon= document.getElementById('toggleIcon');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggleIcon.className = open ? 'bi bi-x-lg' : 'bi bi-list';
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggleIcon.className = 'bi bi-list';
+    }));
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Quick book
+    function handleQuickBook() {
+      const name = document.getElementById('aName').value.trim();
+      const phone = document.getElementById('aPhone').value.trim();
+      if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+      alert(`Thank you, ${name}! We'll call you at ${phone} within 24 hours to confirm your appointment. 🌿`);
+    }
+
+    // Contact form
+    function handleFormSubmit() {
+      alert('Thank you for reaching out to Drishti Ayurvedic Eye Clinic! Our team will contact you within 24 hours. 🌿');
+    }
+  </script>
+</body>
+</html>
